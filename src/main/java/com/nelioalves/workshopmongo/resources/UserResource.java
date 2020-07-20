@@ -42,6 +42,11 @@ public class UserResource {
 		User user = userService.fromDTO(objDto);
 		User obj = userService.insert(user);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build(); // retorna uma resposta vazia com o codigo 201 e com o cabeçalho contendo a localozação com o novo recurso criado
+		return ResponseEntity.created(uri).build(); // retorna uma resposta vazia com o codigo 201 e com o cabeçalho contendo a localização com o novo recurso criado
+	}
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable String id){
+		userService.delete(id);
+		return ResponseEntity.noContent().build(); //resposta 204
 	}
 }
