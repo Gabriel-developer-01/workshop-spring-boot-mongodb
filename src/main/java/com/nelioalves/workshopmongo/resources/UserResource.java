@@ -66,5 +66,4 @@ public class UserResource {
 		// estou colocando o tipo do método para retornar uma lista de Post e na resposta eu coloco o obj User chamando o getPosts,ou seja,
 		//chamando minha lista de Posts
 	}
-	
 }
